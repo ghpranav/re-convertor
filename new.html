@@ -1,0 +1,123 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="FSM simulator is a Web application for step-by-step visual simulation of finite state machines which are defined with regular expressions.">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Regular Expression Convertor</title>
+
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css">
+  <link rel="stylesheet" href="assets/fsm_simulator.css">
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <h1>Regular Expression Convertor</h1>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="container controls">
+      <div class="row-fluid">
+        <div class="span12 column">
+          <h3> ① Create automaton </h3>
+
+          <ul class="nav nav-tabs">
+            <li id="regexinput" class="active"><a href="#tab1" data-toggle="tab">Input regex</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+              <div class="instructions">
+                <p>
+                  Enter a regular expression into the input field below or click <strong>Generate random regex</strong>
+                  to have the app generate a simple regex randomly for you.
+                  Next, click <strong>Create automaton</strong> to create a FSM for the defined regex and display its
+                  transition graph.
+                </p>
+                <p>
+                  A valid regex consists of alphanumeric characters representing the set of input symbols (e.g.
+                  <code>a</code>, <code>B</code>, <code>9</code>), the <code>$</code> character representing the empty
+                  string, the choice operator <code>+</code>, the Kleene operator <code>*</code>, and parentheses
+                  <code>(</code> and <code>)</code>. An example of a valid regex is: <code>(a+B)*(c9+$)+$</code>.
+                </p>
+              </div>
+
+              <p>
+                <button id="generateRegex" class="btn">Generate random regex</button>
+              </p>
+
+              <p>
+              </p>
+              <div class="control-group">
+                <input id="regex" type="text" class="input-block-level" placeholder="or write your own"
+                  spellcheck="false">
+              </div>
+              <p></p>
+
+              <p>
+              </p>
+              <div class="control-group">
+                <label for="automatonType">Select generated FSM type: </label>
+                <select id="automatonType">
+                  <option value="eNFA" default="true">eNFA</option>
+                  <option value="DFA">DFA</option>
+                </select>
+              </div>
+              <p></p>
+            </div>
+          </div>
+
+          <p id="fsmError" class="text-error">
+          </p>
+
+          <p>
+            <button id="createAutomaton" class="btn">Create automaton</button>
+          </p>
+
+        </div>
+
+      </div>
+
+      <hr>
+    </div>
+
+    <div class="container graph">
+      <h3> ② Transition graph </h3>
+
+      <p>
+        The FSM being simulated is displayed in the form of a transition graph.
+        The nodes representing the current states of the FSM are colored in <span
+          class="currentState">&nbsp;&nbsp;&nbsp;</span>.
+      </p>
+
+      <div id="automatonGraph"> </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>
+      Created by <a href="https://www.linkedin.com/in/ghpranav">Pranav Bedre G H</a>, <a href="#">Pruthvi H P</a> and <a
+        href="#">Yashas S</a>.
+      Built with <a href="https://github.com/izuzak/noam">Noam</a>, <a
+        href="http://twitter.github.com/bootstrap/">Bootstrap</a>, <a
+        href="https://github.com/mdaines/viz.js">Viz.js</a>, and <a href="http://jquery.com/">jQuery</a>.
+      <br>
+      Code available on <a href="https://github.com/ghpranav/re-convertor.git">GitHub</a> and
+      licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.
+    </p>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+  <script src="http://mdaines.github.io/viz.js/bower_components/viz.js/viz.js"></script>
+  <script src="assets/noam.js"></script>
+  <script src="assets/fsm_simulator.js"></script>
+
+
+</body>
+
+</html>
